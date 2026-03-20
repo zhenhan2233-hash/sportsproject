@@ -21,17 +21,8 @@ function Card({ name, title, blurb, github, skills }) {
 
       {showMore && (
         <div className="mt-4 pt-4 border-t border-gray-200 text-left">
-          {github && (
-            <p className="text-sm text-gray-600">
-              🔗{" "}
-              <a
-                href={github}
-                className="text-blue-500 hover:underline"
-              >
-                GitHub Repository
-              </a>
-            </p>
-          )}
+        
+          
 
           {skills && (
             <p className="text-sm text-gray-600 mt-2">
