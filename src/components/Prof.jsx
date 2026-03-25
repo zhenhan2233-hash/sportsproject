@@ -5,9 +5,9 @@ function Prof({ name, sport, info, events,}) {
 
     <h3 className = "text-bold text-blue-800">Sport Interests:{sport}</h3>
 
-    <h3 className = "text-blue-800">Additional Information: {Info}</h3>
+    <h3 className = "text-blue-800">Additional Information: {info}</h3>
 
-    <h4 className = "text-bold text-gray-800">Events: {Events}</h4>
+    <h4 className = "text-bold text-gray-800">Events: {events}</h4>
     </div>
   );
 }
