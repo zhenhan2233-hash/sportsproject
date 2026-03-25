@@ -6,10 +6,10 @@ function Profile() {
      
 
       <Prof 
-        Name="Timothy" 
-        Sport="Basketball" 
-        Info="I love participating in sports" 
-        Events="2v2 Hoops"
+        name="Timothy" 
+        sport="Basketball" 
+        info="I love participating in sports" 
+        events="2v2 Hoops"
       />
     </>
   );
