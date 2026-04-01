@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Card({ name, title, blurb, github, skills }) {
+function Card({ name, title, background, goals, skills, pic }) {
   const [showMore, setShowMore] = useState(false);
 
   return (
@@ -9,8 +9,10 @@ function Card({ name, title, blurb, github, skills }) {
         {name}
       </h3>
 
+      <img src={pic} alt="profile" className="w-24 h-24 mx-auto mt-4"/>
+
       <p className="text-blue-500 font-semibold">{title}</p>
-      <p className="text-gray-500 mt-2">{blurb}</p>
+      <p className="text-gray-500 mt-2">{background}</p>
 
       <button
         onClick={() => setShowMore(!showMore)}
@@ -27,8 +29,19 @@ function Card({ name, title, blurb, github, skills }) {
           {skills && (
             <p className="text-sm text-gray-600 mt-2">
               Skills: {skills}
+
+             
             </p>
           )}
+
+{goals && (
+            <p className="text-sm text-gray-600 mt-2">
+              Goals: {goals}
+
+             
+            </p>
+          )}
+
         </div>
       )}
     </div>
