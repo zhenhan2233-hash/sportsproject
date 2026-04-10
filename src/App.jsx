@@ -41,7 +41,7 @@ function App() {
   <MdEvent className="text-xl-text-center text-bold mb-2" />Events</Link>
        <Link to="/chat" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
   <IoChatboxEllipses className="text-xl-text-center text-bold mb-2" />Chat</Link>
-       <Link to="profile" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+       <Link to="/profile" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
   <IoPersonSharp className="text-xl-text-center text-bold mb-2" />Profile</Link>
         <Link to="/setting" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
   <FaGear className="text-xl-text-center text-bold mb-2" />Settings</Link>
