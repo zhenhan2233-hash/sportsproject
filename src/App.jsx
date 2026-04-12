@@ -25,11 +25,12 @@ import Chat from "./pages/Chat";
 import Search from "./pages/Search";
 import Map from "./pages/Map";
 
+
 function App() {
   return (
 
     <>
-   
+   <BrowserRouter basename="/my-first-app/"></BrowserRouter>
 
     <BrowserRouter>
     <nav className="fixed bottom-0 left-0 w-full bg-white border-t-5 border-blue-500 p-5 flex gap-6">

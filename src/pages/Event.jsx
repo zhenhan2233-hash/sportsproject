@@ -1,25 +1,35 @@
+import { useState } from "react";
 import Eventform from "../components/Eventform";
+import LikeButton from "../components/LikeButton";
 
 function Event() {
-  return (
-    <div className="p-6 flex gap-4 flex-wrap">
-      <Eventform
-        title="2v2 Basketball"
-        location="Oakland Park"
-        sport="Basketball"
-        privacy="Public"
-        description="Friendly games"
-        extra="Bring your own team"
-      />
+  const [events, setEvents] = useState([]);
 
-      <Eventform
-        title="Soccer Match"
-        location="Alameda Field"
-        sport="Soccer"
-        privacy="Private"
-        description="Invite only"
-        extra="Contact host"
-      />
+  const handleAddEvent = (newEvent) => {
+    setEvents((prev) => [...prev, newEvent]);
+  };
+
+  return (
+    <div className="p-6">
+      <Eventform onSubmit={handleAddEvent} />
+
+      <div className="mt-6">
+        <h2 className="text-xl font-bold mb-2">Posted Events</h2>
+
+        {events.length === 0 ? (
+          <p>No events yet</p>
+        ) : (
+          events.map((event, index) => (
+            <div key={index} className="border p-4 mb-2 rounded">
+              <LikeButton />
+              <h3 className="font-semibold">{event.title}</h3>
+              <p>{event.location}</p>
+              <p>{event.sport}</p>
+              <p>{event.description}</p>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }
