@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./sportsproject
+        working-directory: ./zhenhan2233-hash/sportsproject
 
     steps:
       - name: Checkout
@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: ./sportsproject/package-lock.json
+          cache-dependency-path: ./zhenhan2233-hash/sportsproject/package-lock.json
 
 
       - name: Install dependencies
@@ -45,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./sportsproject/dist
+          path: ./zhenhan2233-hash/sportsproject/dist
 
   deploy:
     needs: build
