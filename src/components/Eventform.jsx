@@ -20,7 +20,7 @@ function Eventform({ onSubmit }) {
 
     onSubmit(formData); 
 
-
+    
     setFormData({
       title: "",
       location: "",
