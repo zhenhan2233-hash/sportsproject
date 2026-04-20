@@ -5,7 +5,7 @@ function Chat() {
           <h1 className="font-bold text-center">Chat</h1>
         </div>
   
-        {/* Fixed input bar */}
+        
         <div className="fixed bottom-35 right-10 flex p-4">
           <input
             type="text"
