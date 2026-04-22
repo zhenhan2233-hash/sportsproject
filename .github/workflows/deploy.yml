@@ -19,8 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-      working-directory: ./
-     
+        working-directory: ./sportsproject/
 
     steps:
       - name: Checkout
@@ -34,7 +33,7 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
