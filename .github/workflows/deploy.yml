@@ -30,11 +30,10 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: ./zhenhan2233-hash/sportsproject/package-lock.json
-
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: cd sportsproject && npm ci
+        run: npm ci
 
       - name: Build
         run: npm run build
@@ -56,6 +55,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
