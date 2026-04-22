@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./zhenhan2233-hash/sportsproject
+        working-directory: ./sportsproject
 
     steps:
       - name: Checkout
