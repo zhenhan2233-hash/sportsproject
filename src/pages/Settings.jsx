@@ -1,6 +1,8 @@
 import React from "react";
+import { useTheme } from "../App";
 
-function Settings({ darkMode = false, setDarkMode = () => {} }) {
+function Settings() {
+  const { darkMode, setDarkMode } = useTheme();
   const pageStyle = {
     backgroundColor: darkMode ? "#1a1a1a" : "#ffffff",
     color: darkMode ? "#f0f0f0" : "#000000",

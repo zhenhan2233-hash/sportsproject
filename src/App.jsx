@@ -10,7 +10,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import { FaMapMarked } from "react-icons/fa";
 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, createContext, useContext } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
@@ -25,6 +25,10 @@ import Chat from "./pages/Chat";
 import Search from "./pages/Search";
 import Map from "./pages/Map";
 
+const ThemeContext = createContext();
+
+export const useTheme = () => useContext(ThemeContext);
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -36,9 +40,10 @@ function App() {
   };
 
   return (
-    <div style={appStyle}>
-      <BrowserRouter basename="/sportsproject/">
-        <nav className="fixed bottom-0 left-0 w-full bg-white border-t-5 border-blue-500 p-5 flex gap-6">
+    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
+      <div style={appStyle}>
+        <BrowserRouter basename="/sportsproject/">
+          <nav className={`fixed bottom-0 left-0 w-full border-t-5 border-blue-500 p-5 flex gap-6 ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
           <Link to="/" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
             <FaHome className="text-xl-text-center text-bold mb-2" />Home
           </Link>
@@ -70,13 +75,14 @@ function App() {
           <Route path="/map" element={<Map />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/setting" element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />} />
+          <Route path="/setting" element={<Settings />} />
           <Route path="/event" element={<Event />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/search" element={<Search />} />
         </Routes>
       </BrowserRouter>
     </div>
+    </ThemeContext.Provider>
   );
 }
 
