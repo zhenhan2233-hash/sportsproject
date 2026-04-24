@@ -4,8 +4,8 @@ function Card({ name, title, background, goals, skills, pic }) {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 w-72 text-center hover:shadow-xl transition-all duration-200">
-      <h3 className="text-xl font-bold text-gray-800">
+    <div className="bg-white rounded-2xl shadow-md w-144 p-35 text-center hover:shadow-xl transition-all">
+      <h3 className="text-4xl font-bold text-gray-800">
         {name}
       </h3>
 

@@ -3,17 +3,19 @@ import "leaflet/dist/leaflet.css";
 
 function Map() {
   return (
-    <MapContainer
-      center={[37.7749, -122.4194]}
-      zoom={13}
-      style={{ height: "100%", width: "100%" }}
-    >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+    <div style={{ height: "100vh", width: "100%", paddingBottom: "120px" }}>
+      <MapContainer
+        center={[37.7749, -122.4194]}
+        zoom={13}
+        style={{ height: "100%", width: "100%" }}
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <Marker position={[37.7749, -122.4194]}>
-        <Popup>My Location</Popup>
-      </Marker>
-    </MapContainer>
+        <Marker position={[37.7749, -122.4194]}>
+          <Popup>My Location</Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
 }
 

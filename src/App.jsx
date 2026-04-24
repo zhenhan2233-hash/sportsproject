@@ -32,7 +32,7 @@ function App() {
     <BrowserRouter basename="/sportsproject/"></BrowserRouter>
 
     <BrowserRouter>
-    <nav className="fixed bottom-0 left-0 w-full bg-white border-t-5 border-blue-500 p-5 flex gap-6">
+    <nav className="fixed bottom-0 left-0 w-full bg-white border-t-5 border-blue-500 p-5 flex gap-6 z-50">
     <Link to="/" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
   <FaHome className="text-xl-text-center text-bold mb-2" />Home</Link>
       <Link to="/map" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
