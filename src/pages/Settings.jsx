@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Settings() {
-  const [darkMode, setDarkMode] = useState(false);
-
+function Settings({ darkMode = false, setDarkMode = () => {} }) {
   const pageStyle = {
     backgroundColor: darkMode ? "#1a1a1a" : "#ffffff",
     color: darkMode ? "#f0f0f0" : "#000000",
@@ -32,3 +30,7 @@ function Settings() {
 }
 
 export default Settings;
+
+
+
+

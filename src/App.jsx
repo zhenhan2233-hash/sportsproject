@@ -26,47 +26,57 @@ import Search from "./pages/Search";
 import Map from "./pages/Map";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const appStyle = {
+    backgroundColor: darkMode ? "#121212" : "#f8f8f8",
+    color: darkMode ? "#f0f0f0" : "#111111",
+    minHeight: "100vh",
+    transition: "background-color 0.3s, color 0.3s",
+  };
+
   return (
+    <div style={appStyle}>
+      <BrowserRouter basename="/sportsproject/">
+        <nav className="fixed bottom-0 left-0 w-full bg-white border-t-5 border-blue-500 p-5 flex gap-6">
+          <Link to="/" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <FaHome className="text-xl-text-center text-bold mb-2" />Home
+          </Link>
+          <Link to="/map" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <FaMapMarked className="text-xl-text-center text-bold mb-2" />Map
+          </Link>
+          <Link to="/event" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <MdEvent className="text-xl-text-center text-bold mb-2" />Events
+          </Link>
+          <Link to="/chat" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <IoChatboxEllipses className="text-xl-text-center text-bold mb-2" />Chat
+          </Link>
+          <Link to="/profile" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <IoPersonSharp className="text-xl-text-center text-bold mb-2" />Profile
+          </Link>
+          <Link to="/setting" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <FaGear className="text-xl-text-center text-bold mb-2" />Settings
+          </Link>
+          <Link to="/about" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <FaQuestion className="text-xl-text-center text-bold mb-2" />About
+          </Link>
+          <Link to="/search" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
+            <FaMagnifyingGlass className="text-xl-text-center text-bold mb-2" />Search
+          </Link>
+        </nav>
 
-    <>
-    <BrowserRouter basename="/sportsproject/"></BrowserRouter>
-
-    <BrowserRouter>
-    <nav className="fixed bottom-0 left-0 w-full bg-white border-t-5 border-blue-500 p-5 flex gap-6 z-50">
-    <Link to="/" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <FaHome className="text-xl-text-center text-bold mb-2" />Home</Link>
-      <Link to="/map" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <FaMapMarked className="text-xl-text-center text-bold mb-2" />Map</Link>
-      <Link to="/event" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <MdEvent className="text-xl-text-center text-bold mb-2" />Events</Link>
-       <Link to="/chat" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <IoChatboxEllipses className="text-xl-text-center text-bold mb-2" />Chat</Link>
-       <Link to="/profile" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <IoPersonSharp className="text-xl-text-center text-bold mb-2" />Profile</Link>
-        <Link to="/setting" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <FaGear className="text-xl-text-center text-bold mb-2" />Settings</Link>
-        <Link to="/about" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <FaQuestion className="text-xl-text-center text-bold mb-2" />About</Link>
-      <Link to="/search" className="flex flex-col items-center p-2 w-25 h-20 border-2 rounded">
-  <FaMagnifyingGlass className="text-xl-text-center text-bold mb-2" />Search</Link>
-
-
-      </nav>
-
-      <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path ="/map" element={<Map/>} />
-        <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/setting" element={<Settings />} />
-        <Route path="/event" element={<Event/>} />
-        <Route path="/chat" element={<Chat/>} />
-        <Route path="/search" element={<Search/>} />
-        
-      </Routes>
-    </BrowserRouter>
-
-    </>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/map" element={<Map />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/setting" element={<Settings darkMode={darkMode} setDarkMode={setDarkMode} />} />
+          <Route path="/event" element={<Event />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/search" element={<Search />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
