@@ -15,7 +15,7 @@ function About() {
         pic={pic1}
       />
 
-      <Card 
+      <Card style={{ marginBottom: "40px", gap: "200px" }}
         name="Raymon"
         background="Student at Oakland Technical High School"
         goals="Providing a great experience for people in need of Sports Assistance."

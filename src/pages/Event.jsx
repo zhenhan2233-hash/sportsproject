@@ -5,13 +5,13 @@ import LikeButton from "../components/LikeButton";
 function Event() {
   const [events, setEvents] = useState([]);
 
-  const handleAddEvent = (newEvent) => {
+  const AddEvent = (newEvent) => {
     setEvents((prev) => [...prev, newEvent]);
   };
 
   return (
     <div className="p-6">
-      <Eventform onSubmit={handleAddEvent} />
+      <Eventform onSubmit={AddEvent} />
 
       <div className="mt-6">
         <h2 className="text-xl font-bold mb-2">Posted Events</h2>
