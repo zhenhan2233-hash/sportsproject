@@ -9,7 +9,6 @@ return (
 
 )
 
-
-
-
 }
+
+export default Button;
