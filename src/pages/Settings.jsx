@@ -1,5 +1,7 @@
-function Settings() {
+import React from "react";
+import { useTheme } from "../App";
 
+function Settings() {
   const { darkMode, setDarkMode } = useTheme();
   const pageStyle = {
     backgroundColor: darkMode ? "#0F172A" : "#ffffff",
@@ -12,16 +14,19 @@ function Settings() {
   const buttonStyle = {
     padding: "10px 20px",
     cursor: "pointer",
-    backgroundColor: darkMode ? "#334155" : "#eeeeee",
+    backgroundColor: darkMode ? "#555555" : "#eeeeee",
     color: darkMode ? "#ffffff" : "#000000",
     border: "none",
     borderRadius: "5px",
   };
 
   return (
-    <div className="min-h-screen p-6 bg-white text-black">
-      <h1 className="text-2xl font-bold mb-4">Settings</h1>
-      <p className="mb-4">Settings content goes here.</p>
+    <div style={pageStyle}>
+      <h1>Settings</h1>
+      <p>Toggle Dark / Light Mode:</p>
+      <button style={buttonStyle} onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      </button>
     </div>
   );
 }

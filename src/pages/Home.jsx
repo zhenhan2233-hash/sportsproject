@@ -19,7 +19,7 @@ function Home() {
           darkMode ? "text-gray-300" : "text-gray-700"
         }`}
       >
-        Connecting athletes. Supporting communities. Providing Oppurtunities.
+        Connecting athletes. Supporting communities.
       </p>
 
       <div

@@ -27,7 +27,7 @@ function App() {
 
   const appStyle = {
     backgroundColor: darkMode ? "#0F172A" : "#f8f8f8",
-    color: darkMode ? "#f0f0f0" : "#111111",
+    color: darkMode ? "#f8f8f8o" : "#111111",
     minHeight: "100vh",
     transition: "background-color 0.3s, color 0.3s",
   };
