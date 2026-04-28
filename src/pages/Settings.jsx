@@ -14,7 +14,7 @@ function Settings() {
   const buttonStyle = {
     padding: "10px 20px",
     cursor: "pointer",
-    backgroundColor: darkMode ? "#555555" : "#eeeeee",
+    backgroundColor: darkMode ? "#182543ff" : "#eeeeee",
     color: darkMode ? "#ffffff" : "#000000",
     border: "none",
     borderRadius: "5px",

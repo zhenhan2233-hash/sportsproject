@@ -27,14 +27,18 @@ function App() {
 
   const appStyle = {
     backgroundColor: darkMode ? "#0F172A" : "#f8f8f8",
-    color: darkMode ? "#f8f8f8o" : "#111111",
+    color: darkMode ? "#f8f8f8" : "#111111",
     minHeight: "100vh",
     transition: "background-color 0.3s, color 0.3s",
   };
 
   const navLinkStyle = ({ isActive }) =>
-    `flex flex-1 min-w-[80px] flex-col items-center justify-center p-2 border-2 rounded text-center ${
-      isActive ? "bg-blue-500 text-white" : "text-black"
+    `flex flex-1 min-w-[80px] flex-col items-center justify-center p-2 border-2 rounded text-center transition-colors duration-300 ${
+      isActive 
+        ? "bg-blue-500 text-white border-blue-500" 
+        : darkMode 
+          ? "text-gray-300 border-slate-700 hover:bg-slate-800" 
+          : "text-black border-transparent hover:bg-gray-200"
     }`;
 
 
@@ -43,7 +47,7 @@ function App() {
       <div style={appStyle}>
         <BrowserRouter basename="/sportsproject">
 
-          <nav className="fixed bottom-0 left-0 w-full bg-white border-t-4 border-blue-500 p-2 flex flex-wrap justify-between gap-2 z-50">
+          <nav className={`fixed bottom-0 left-0 w-full border-t-4 border-blue-500 p-2 flex flex-wrap justify-between gap-2 z-50 transition-colors duration-300 ${darkMode ? "bg-slate-900" : "bg-white"}`}>
             <NavLink to="/" className={navLinkStyle}>
               <FaHome className="text-xl mb-2" />
 

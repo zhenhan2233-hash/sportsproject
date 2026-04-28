@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTheme } from "../App";
 
 function Eventform({ onSubmit }) {
+  const { darkMode } = useTheme();
   const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -17,10 +19,7 @@ function Eventform({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onSubmit(formData); 
-
-    
     setFormData({
       title: "",
       location: "",
@@ -29,14 +28,21 @@ function Eventform({ onSubmit }) {
     });
   };
 
+  const inputClass = `block w-full mb-3 p-2 border rounded focus:outline-none transition-colors duration-300 ${
+    darkMode 
+      ? "bg-slate-800 border-slate-700 text-white placeholder-gray-400 focus:border-blue-500" 
+      : "bg-white border-gray-300 text-black focus:border-blue-500"
+  }`;
+
   return (
-    <form onSubmit={handleSubmit} className="border p-4 rounded">
+    <form onSubmit={handleSubmit} className={`border p-4 rounded-xl shadow-sm transition-colors duration-300 ${darkMode ? "bg-slate-900 border-slate-700" : "bg-white border-gray-200"}`}>
+      <h2 className="text-lg font-bold mb-4">Create New Event</h2>
       <input
         name="title"
         value={formData.title}
         onChange={handleChange}
         placeholder="Title"
-        className="block mb-2"
+        className={inputClass}
       />
 
       <input
@@ -44,7 +50,7 @@ function Eventform({ onSubmit }) {
         value={formData.location}
         onChange={handleChange}
         placeholder="Location"
-        className="block mb-2"
+        className={inputClass}
       />
 
       <input
@@ -52,7 +58,7 @@ function Eventform({ onSubmit }) {
         value={formData.sport}
         onChange={handleChange}
         placeholder="Sport"
-        className="block mb-2"
+        className={inputClass}
       />
 
       <textarea
@@ -60,10 +66,10 @@ function Eventform({ onSubmit }) {
         value={formData.description}
         onChange={handleChange}
         placeholder="Description"
-        className="block mb-2"
+        className={`${inputClass} resize-none h-24`}
       />
 
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2">
+      <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-300 mt-2">
         Post Event
       </button>
     </form>
