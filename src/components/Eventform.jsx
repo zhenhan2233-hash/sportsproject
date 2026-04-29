@@ -10,14 +10,14 @@ function Eventform({ onSubmit }) {
     description: "",
   });
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
+  }
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     onSubmit(formData); 
     setFormData({
@@ -26,7 +26,7 @@ function Eventform({ onSubmit }) {
       sport: "",
       description: "",
     });
-  };
+  }
 
   const inputClass = `block w-full mb-3 p-2 border rounded focus:outline-none transition-colors duration-300 ${
     darkMode 

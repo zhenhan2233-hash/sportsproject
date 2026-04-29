@@ -24,7 +24,7 @@ function Settings() {
     <div style={pageStyle}>
       <h1>Settings</h1>
       <p>Toggle Dark / Light Mode:</p>
-      <button style={buttonStyle} onClick={() => setDarkMode(!darkMode)}>
+      <button style={buttonStyle} onClick={function() { setDarkMode(!darkMode); }}>
         {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
       </button>
     </div>

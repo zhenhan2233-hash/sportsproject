@@ -25,10 +25,10 @@ function Prof() {
       <h1 className="text-2xl font-bold">Profile Setup</h1>
 
       <form onSubmit={handleSubmit} className={`flex flex-col gap-4 w-80 p-6 border rounded-xl shadow-sm transition-colors duration-300 ${darkMode ? "bg-slate-900 border-slate-700" : "bg-white border-gray-200"}`}>
-        <input placeholder="Name" onChange={(e) => setName(e.target.value)} className={inputClass}/>
-        <input placeholder="Sport" onChange={(e) => setSport(e.target.value)} className={inputClass}/>
-        <input placeholder="Info" onChange={(e) => setInfo(e.target.value)} className={inputClass}/>
-        <input placeholder="Events" onChange={(e) => setEvents(e.target.value)} className={inputClass}/>
+        <input placeholder="Name" onChange={function(e) { setName(e.target.value); }} className={inputClass}/>
+        <input placeholder="Sport" onChange={function(e) { setSport(e.target.value); }} className={inputClass}/>
+        <input placeholder="Info" onChange={function(e) { setInfo(e.target.value); }} className={inputClass}/>
+        <input placeholder="Events" onChange={function(e) { setEvents(e.target.value); }} className={inputClass}/>
 
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold p-3 rounded-lg transition-colors duration-300 mt-2">
           Save Profile

@@ -20,7 +20,7 @@ import Search from "./pages/Search";
 import Map from "./pages/Map";
 
 const ThemeContext = createContext();
-export const useTheme = () => useContext(ThemeContext);
+export function useTheme() { return useContext(ThemeContext); }
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -32,14 +32,15 @@ function App() {
     transition: "background-color 0.3s, color 0.3s",
   };
 
-  const navLinkStyle = ({ isActive }) =>
-    `flex flex-1 min-w-[80px] flex-col items-center justify-center p-2 border-2 rounded text-center transition-colors duration-300 ${
+  function navLinkStyle({ isActive }) {
+    return `flex flex-1 min-w-[80px] flex-col items-center justify-center p-2 border-2 rounded text-center transition-colors duration-300 ${
       isActive 
         ? "bg-blue-500 text-white border-blue-500" 
         : darkMode 
           ? "text-gray-300 border-slate-700 hover:bg-slate-800" 
           : "text-black border-transparent hover:bg-gray-200"
     }`;
+  }
 
 
   return (

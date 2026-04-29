@@ -17,7 +17,7 @@ function Card({ name, title, background, goals, skills, pic }) {
       <p className={`mt-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{background}</p>
 
       <button
-        onClick={() => setShowMore(!showMore)}
+        onClick={function() { setShowMore(!showMore); }}
         className={`mt-4 text-sm font-semibold ${darkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-500 hover:text-blue-700'}`}
       >
         {showMore ? "▲ Show Less" : "▼ Show More"}
