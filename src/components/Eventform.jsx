@@ -19,6 +19,11 @@ function Eventform({ onSubmit }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
+    if (!formData.title || !formData.location || !formData.sport || !formData.description) {
+      return;
+    }
+
     onSubmit(formData); 
     setFormData({
       title: "",
@@ -43,6 +48,7 @@ function Eventform({ onSubmit }) {
         onChange={handleChange}
         placeholder="Title"
         className={inputClass}
+        required
       />
 
       <input
@@ -51,6 +57,7 @@ function Eventform({ onSubmit }) {
         onChange={handleChange}
         placeholder="Location"
         className={inputClass}
+        required
       />
 
       <input
@@ -59,6 +66,7 @@ function Eventform({ onSubmit }) {
         onChange={handleChange}
         placeholder="Sport"
         className={inputClass}
+        required
       />
 
       <textarea
@@ -67,6 +75,7 @@ function Eventform({ onSubmit }) {
         onChange={handleChange}
         placeholder="Description"
         className={`${inputClass} resize-none h-24`}
+        required
       />
 
       <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-300 mt-2">

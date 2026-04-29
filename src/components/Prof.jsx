@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useTheme } from "../App";
 
+
+
+
 function Prof() {
   const { darkMode } = useTheme();
   const [name, setName] = useState("");
@@ -29,6 +32,8 @@ function Prof() {
         <input placeholder="Sport" onChange={function(e) { setSport(e.target.value); }} className={inputClass}/>
         <input placeholder="Info" onChange={function(e) { setInfo(e.target.value); }} className={inputClass}/>
         <input placeholder="Events" onChange={function(e) { setEvents(e.target.value); }} className={inputClass}/>
+
+        
 
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold p-3 rounded-lg transition-colors duration-300 mt-2">
           Save Profile
