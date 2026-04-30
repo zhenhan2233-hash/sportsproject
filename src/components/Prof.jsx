@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "../App";
-
-
+import { supabase } from "../supabase";
 
 
 function Prof() {
@@ -12,9 +11,41 @@ function Prof() {
   const [events, setEvents] = useState("");
   const [saved, setSaved] = useState(false);
 
-  function handleSubmit(e) {
+  useEffect(function() {
+    async function loadProfile() {
+      const savedName = localStorage.getItem('userName');
+      if (savedName) {
+        const { data, error } = await supabase
+          .from('profile')
+          .select('*')
+          .eq('Name', savedName)
+          .limit(1);
+
+        if (data && data.length > 0) {
+          setName(data[0].Name || "");
+          setSport(data[0].Sport || "");
+          setInfo(data[0].Info || "");
+          setEvents(data[0].Events || "");
+          setSaved(true);
+        }
+      }
+    }
+    loadProfile();
+  }, []);
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSaved(true);
+    const { error } = await supabase.from('profile').insert([
+      { Name: name, Sport: sport, Info: info, Events: events }
+    ]);
+    
+    if (error) {
+      console.error("Error saving profile:", error);
+      alert("Failed to save profile.");
+    } else {
+      localStorage.setItem('userName', name);
+      setSaved(true);
+    }
   }
 
   const inputClass = `border p-3 rounded-lg focus:outline-none transition-colors duration-300 ${
@@ -28,10 +59,10 @@ function Prof() {
       <h1 className="text-2xl font-bold">Profile Setup</h1>
 
       <form onSubmit={handleSubmit} className={`flex flex-col gap-4 w-80 p-6 border rounded-xl shadow-sm transition-colors duration-300 ${darkMode ? "bg-slate-900 border-slate-700" : "bg-white border-gray-200"}`}>
-        <input placeholder="Name" onChange={function(e) { setName(e.target.value); }} className={inputClass}/>
-        <input placeholder="Sport" onChange={function(e) { setSport(e.target.value); }} className={inputClass}/>
-        <input placeholder="Info" onChange={function(e) { setInfo(e.target.value); }} className={inputClass}/>
-        <input placeholder="Events" onChange={function(e) { setEvents(e.target.value); }} className={inputClass}/>
+        <input placeholder="Name" value={name} onChange={function(e) { setName(e.target.value); }} className={inputClass}/>
+        <input placeholder="Sport" value={sport} onChange={function(e) { setSport(e.target.value); }} className={inputClass}/>
+        <input placeholder="Info" value={info} onChange={function(e) { setInfo(e.target.value); }} className={inputClass}/>
+        <input placeholder="Events" value={events} onChange={function(e) { setEvents(e.target.value); }} className={inputClass}/>
 
         
 
