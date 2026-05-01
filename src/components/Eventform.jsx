@@ -3,82 +3,71 @@ import { useTheme } from "../App";
 
 function Eventform({ onSubmit }) {
   const { darkMode } = useTheme();
-  const [formData, setFormData] = useState({
-    title: "",
-    location: "",
-    sport: "",
-    description: "",
-  });
 
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+
+  const [title, setTitle] = useState("");
+  const [location, setLocation] = useState("");
+  const [sport, setSport] = useState("");
+  const [description, setDescription] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+
+    const newEvent = {
+      title: title,
+      location: location,
+      sport: sport,
+      description: description
+    };
+
+
+    onSubmit(newEvent);
+
+
+    setTitle("");
+    setLocation("");
+    setSport("");
+    setDescription("");
   }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    
-    if (!formData.title || !formData.location || !formData.sport || !formData.description) {
-      return;
-    }
-
-    onSubmit(formData); 
-    setFormData({
-      title: "",
-      location: "",
-      sport: "",
-      description: "",
-    });
-  }
-
-  const inputClass = `block w-full mb-3 p-2 border rounded focus:outline-none transition-colors duration-300 ${
-    darkMode 
-      ? "bg-slate-800 border-slate-700 text-white placeholder-gray-400 focus:border-blue-500" 
-      : "bg-white border-gray-300 text-black focus:border-blue-500"
-  }`;
 
   return (
-    <form onSubmit={handleSubmit} className={`border p-4 rounded-xl shadow-sm transition-colors duration-300 ${darkMode ? "bg-slate-900 border-slate-700" : "bg-white border-gray-200"}`}>
+    <form onSubmit={handleSubmit} className={`border p-4 rounded-xl ${darkMode ? "bg-slate-900 text-white" : "bg-white text-black"}`}>
       <h2 className="text-lg font-bold mb-4">Create New Event</h2>
+
       <input
-        name="title"
-        value={formData.title}
-        onChange={handleChange}
         placeholder="Title"
-        className={inputClass}
+        value={title}
+        onChange={function (e) { setTitle(e.target.value); }}
+        className="border p-2 rounded w-full mb-2 text-black"
         required
       />
 
       <input
-        name="location"
-        value={formData.location}
-        onChange={handleChange}
         placeholder="Location"
-        className={inputClass}
+        value={location}
+        onChange={function (e) { setLocation(e.target.value); }}
+        className="border p-2 rounded w-full mb-2 text-black"
         required
       />
 
       <input
-        name="sport"
-        value={formData.sport}
-        onChange={handleChange}
         placeholder="Sport"
-        className={inputClass}
+        value={sport}
+        onChange={function (e) { setSport(e.target.value); }}
+        className="border p-2 rounded w-full mb-2 text-black"
         required
       />
 
       <textarea
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
         placeholder="Description"
-        className={`${inputClass} resize-none h-24`}
+        value={description}
+        onChange={function (e) { setDescription(e.target.value); }}
+        className="border p-2 rounded w-full mb-2 text-black h-24"
         required
       />
 
-      <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-300 mt-2">
+      <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-lg font-bold">
         Post Event
       </button>
     </form>
