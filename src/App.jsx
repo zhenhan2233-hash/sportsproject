@@ -51,58 +51,41 @@ function App() {
           <nav className={`fixed bottom-0 left-0 w-full border-t-4 border-blue-500 p-2 flex flex-wrap justify-between gap-2 z-50 transition-colors duration-300 ${darkMode ? "bg-slate-900" : "bg-white"}`}>
             <NavLink to="/" className={navLinkStyle}>
               <FaHome className="text-xl mb-2" />
-
               Home
             </NavLink>
 
             <NavLink to="/map" className={navLinkStyle}>
-
               <FaMapMarked className="text-xl mb-2" />
               Map
             </NavLink>
 
             <NavLink to="/event" className={navLinkStyle}>
-
               <MdEvent className="text-xl mb-2" />
-
               Events
             </NavLink>
 
             <NavLink to="/chat" className={navLinkStyle}>
-
               <IoChatboxEllipses className="text-xl mb-2" />
-
               Chat
             </NavLink>
 
             <NavLink to="/profile" className={navLinkStyle}>
-
               <IoPersonSharp className="text-xl mb-2" />
-
-
               Profile
             </NavLink>
 
             <NavLink to="/setting" className={navLinkStyle}>
-
               <FaGear className="text-xl mb-2" />
-
               Settings
             </NavLink>
 
             <NavLink to="/about" className={navLinkStyle}>
-
               <FaQuestion className="text-xl mb-2" />
-
-
               About
             </NavLink>
 
             <NavLink to="/search" className={navLinkStyle}>
-
               <FaMagnifyingGlass className="text-xl mb-2" />
-
-
               Search
             </NavLink>
           </nav>

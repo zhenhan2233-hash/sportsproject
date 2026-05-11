@@ -11,11 +11,11 @@ function Search() {
   async function handleSearch(event) {
     event.preventDefault();
     
-    // We fetch all events from the database
+
     const response = await supabase.from("event").select("*");
     const allEvents = response.data;
 
-    // We filter the events in simple JavaScript
+  
     const filteredEvents = allEvents.filter(function(item) {
       const nameMatch = item.eventname.toLowerCase().includes(query.toLowerCase());
       const sportMatch = item.sport.toLowerCase().includes(query.toLowerCase());

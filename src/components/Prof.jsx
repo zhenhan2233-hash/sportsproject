@@ -59,29 +59,29 @@ function Prof() {
       <h1 className="text-2xl font-bold">Profile Setup</h1>
 
       <form onSubmit={handleSubmit} className={`flex flex-col gap-4 w-80 p-6 border rounded-xl ${darkMode ? "bg-slate-900 text-white" : "bg-white text-black"}`}>
-        <input
+        <input 
           placeholder="Name"
           value={name}
           onChange={function (e) { setName(e.target.value); }}
-          className="border p-2 rounded text-black"
+          className={`border p-2 rounded text-black ${darkMode ? "text-white" : ""}`}
         />
         <input
           placeholder="Sport"
           value={sport}
           onChange={function (e) { setSport(e.target.value); }}
-          className="border p-2 rounded text-black"
+          className={`border p-2 rounded text-black ${darkMode ? "text-white" : ""}`}
         />
         <input
           placeholder="Info"
           value={info}
           onChange={function (e) { setInfo(e.target.value); }}
-          className="border p-2 rounded text-black"
+          className={`border p-2 rounded text-black ${darkMode ? "text-white" : ""}`}
         />
         <input
           placeholder="Events"
           value={events}
           onChange={function (e) { setEvents(e.target.value); }}
-          className="border p-2 rounded text-black"
+          className={`border p-2 rounded text-black ${darkMode ? "text-white" : ""}`}
         />
 
         <button className="bg-blue-500 text-white p-3 rounded-lg mt-2 font-bold">
